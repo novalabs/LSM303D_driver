@@ -1,8 +1,5 @@
 {
   "name": "LSM303D_driver",
-  "namespace": "driver",
   "description": "LSM303D driver",
-  "sources": [
-    "LSM303D.cpp"
-   ]
+  "provider": "core"
 }
