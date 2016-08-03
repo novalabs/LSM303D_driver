@@ -224,7 +224,7 @@ LSM303D_Acc::~LSM303D_Acc()
 bool
 LSM303D_Acc::init()
 {
-   _device._extA.setCallback([this]() {
+   _device._extA.setCallback([this](uint32_t channel) {
          chSysLockFromISR();
 
          if (_runner != nullptr) {
@@ -323,7 +323,7 @@ LSM303D_Mag::~LSM303D_Mag()
 bool
 LSM303D_Mag::init()
 {
-   _device._extM.setCallback([this]() {
+   _device._extM.setCallback([this](uint32_t channel) {
          chSysLockFromISR();
 
          if (_runner != nullptr) {
