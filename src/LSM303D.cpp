@@ -348,6 +348,7 @@ bool
 LSM303D_Mag::start()
 {
    _device._extM.enable();
+   update();
 
    return true;
 }
