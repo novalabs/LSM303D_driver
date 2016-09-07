@@ -10,7 +10,7 @@
 
 #include <core/hw/SPI.hpp>
 #include <core/hw/EXT.hpp>
-#include <core/mw/CoreSensor.hpp>
+#include <core/utils/BasicSensor.hpp>
 #include <core/os/Thread.hpp>
 
 namespace sensors {
@@ -49,7 +49,7 @@ public:
 };
 
 class LSM303D_Acc:
-   public core::mw::CoreSensor<ModuleConfiguration::LSM303D_ACC_DATATYPE>
+   public core::utils::BasicSensor<ModuleConfiguration::LSM303D_ACC_DATATYPE>
 {
 public:
    LSM303D_Acc(
@@ -95,7 +95,7 @@ private:
 };
 
 class LSM303D_Mag:
-   public core::mw::CoreSensor<ModuleConfiguration::LSM303D_MAG_DATATYPE>
+   public core::utils::BasicSensor<ModuleConfiguration::LSM303D_MAG_DATATYPE>
 {
 public:
    LSM303D_Mag(
