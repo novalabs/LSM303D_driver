@@ -17,126 +17,126 @@ namespace sensors {
 class LSM303D
 {
 public:
-   LSM303D(
-      core::hw::SPIDevice&  spi,
-      core::hw::EXTChannel& extA,
-      core::hw::EXTChannel& extM
-   );
+    LSM303D(
+        core::hw::SPIDevice&  spi,
+        core::hw::EXTChannel& extA,
+        core::hw::EXTChannel& extM
+    );
 
-   virtual
-   ~LSM303D();
-
-public:
-   bool
-   probe();
-
-   uint8_t
-   readRegister(
-      uint8_t reg
-   );
-
-   void
-   writeRegister(
-      uint8_t reg,
-      uint8_t value
-   );
-
+    virtual
+    ~LSM303D();
 
 public:
-   core::hw::SPIDevice&  _spi;
-   core::hw::EXTChannel& _extA;
-   core::hw::EXTChannel& _extM;
+    bool
+    probe();
+
+    uint8_t
+    readRegister(
+        uint8_t reg
+    );
+
+    void
+    writeRegister(
+        uint8_t reg,
+        uint8_t value
+    );
+
+
+public:
+    core::hw::SPIDevice&  _spi;
+    core::hw::EXTChannel& _extA;
+    core::hw::EXTChannel& _extM;
 };
 
 class LSM303D_Acc:
-   public core::utils::BasicSensor<ModuleConfiguration::LSM303D_ACC_DATATYPE>
+    public core::utils::BasicSensor<ModuleConfiguration::LSM303D_ACC_DATATYPE>
 {
 public:
-   LSM303D_Acc(
-      LSM303D& device
-   );
+    LSM303D_Acc(
+        LSM303D& device
+    );
 
-   virtual
-   ~LSM303D_Acc();
+    virtual
+    ~LSM303D_Acc();
 
 private:
 public:
-   bool
-   init();
+    bool
+    init();
 
-   bool
-   configure();
+    bool
+    configure();
 
-   bool
-   start();
+    bool
+    start();
 
-   bool
-   stop();
+    bool
+    stop();
 
-   bool
-   waitUntilReady();
+    bool
+    waitUntilReady();
 
-   bool
-   update();
+    bool
+    update();
 
-   void
-   get(
-      DataType& data
-   );
+    void
+    get(
+        DataType& data
+    );
 
 
 protected:
-   core::os::Thread* _runner;
-   core::os::Time    _timestamp;
+    core::os::Thread* _runner;
+    core::os::Time    _timestamp;
 
 private:
-   LSM303D& _device;
-   ModuleConfiguration::LSM303D_ACC_DATATYPE _data;
+    LSM303D& _device;
+    ModuleConfiguration::LSM303D_ACC_DATATYPE _data;
 };
 
 class LSM303D_Mag:
-   public core::utils::BasicSensor<ModuleConfiguration::LSM303D_MAG_DATATYPE>
+    public core::utils::BasicSensor<ModuleConfiguration::LSM303D_MAG_DATATYPE>
 {
 public:
-   LSM303D_Mag(
-      LSM303D& device
-   );
+    LSM303D_Mag(
+        LSM303D& device
+    );
 
-   virtual
-   ~LSM303D_Mag();
+    virtual
+    ~LSM303D_Mag();
 
 private:
 public:
-   bool
-   init();
+    bool
+    init();
 
-   bool
-   configure();
+    bool
+    configure();
 
-   bool
-   start();
+    bool
+    start();
 
-   bool
-   stop();
+    bool
+    stop();
 
-   bool
-   waitUntilReady();
+    bool
+    waitUntilReady();
 
-   bool
-   update();
+    bool
+    update();
 
-   void
-   get(
-      DataType& data
-   );
+    void
+    get(
+        DataType& data
+    );
 
 
 protected:
-   core::os::Thread* _runner;
-   core::os::Time    _timestamp;
+    core::os::Thread* _runner;
+    core::os::Time    _timestamp;
 
 private:
-   LSM303D& _device;
-   ModuleConfiguration::LSM303D_MAG_DATATYPE _data;
+    LSM303D& _device;
+    ModuleConfiguration::LSM303D_MAG_DATATYPE _data;
 };
 }
